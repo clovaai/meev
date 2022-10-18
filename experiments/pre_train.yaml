@@ -1,0 +1,19 @@
+# Experiment with dataset version 2 and convnext
+
+DATASET:
+  VERSION: 2
+  AUGMENTATION: 2
+
+
+MODEL:
+  backbone: timm_convnext_large 
+  need_multiscale: True
+  position_net: PositionMultiscaleNet
+  rotation_net: RotationMultiscaleNet
+  model_kernel_size: 3
+  model_final_conv_kernel_size: 3
+
+
+TRAINING:
+  end_epoch: 25
+  lr_dec_epoch: [5, 10, 20]

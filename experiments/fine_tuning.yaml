@@ -1,0 +1,22 @@
+# Experiment with dataset version 2 and convnext
+
+DATASET:
+  trainset_3d: ['EgoBody']
+  trainset_2d: []
+  AUGMENTATION: 2
+
+
+MODEL:
+  backbone: timm_convnext_large 
+  need_multiscale: True
+  position_net: PositionMultiscaleNet
+  rotation_net: RotationMultiscaleNet
+  model_kernel_size: 3
+  model_final_conv_kernel_size: 3
+
+
+TRAINING:
+  end_epoch: 50
+  lr_dec_epoch: [30, 45]
+  train_batch_size: 48
+  lr: 0.00001
